@@ -9,7 +9,9 @@ function LatestPost() {
 
   const fetchProducts = async () => {
     try {
-      const res = await fetch("https://dummyjson.com/products/");
+      const res = await fetch("https://dummyjson.com/products?limit=0", {
+        cache: "no-store", // always fresh data
+      });
       const data = await res.json();
       setProduct(data.products);
       setLoading(false);

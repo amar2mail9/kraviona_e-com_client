@@ -49,7 +49,7 @@ export const Header = () => {
             className="hidden md:block w-[150px] lg:w-[180px]"
           />
           <img
-            src="/t-logo.png"
+            src="/favicon.ico"
             alt="logo"
             className="md:hidden w-[50px] rounded-full"
           />

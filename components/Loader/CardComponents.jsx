@@ -3,6 +3,7 @@
 import { colorcode } from "@/context/data";
 import { Button } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
+import Link from "next/link";
 
 export const CardLoader = () => {
   return (
@@ -59,6 +60,7 @@ export const CardDesign = ({
   title = "Essence Mascara Lash Princess",
   category = "Beauty",
   price = 9.99,
+  id,
   discountPercentage = 10.48,
   rating = 2.56,
   thumbnail = "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
@@ -80,19 +82,20 @@ export const CardDesign = ({
         "
         style={{
           background: colorcode.cardBg,
-          // border: `1px solid ${colorcode.info}`,
 
           boxShadow: "0 0 20px 1px #19191930",
         }}
       >
         {/* Product Image */}
         <div className="bg-white h-[160px] flex items-center justify-center">
-          <img
-            loading="lazy"
-            src={thumbnail}
-            alt={title}
-            className="w-full h-full object-contain p-4"
-          />
+          <Link href={`/${id}`}>
+            <img
+              loading="lazy"
+              src={thumbnail}
+              alt={title}
+              className="w-full h-full object-contain p-4"
+            />
+          </Link>
         </div>
 
         {/* Product Details */}

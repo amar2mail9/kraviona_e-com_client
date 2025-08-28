@@ -1,6 +1,5 @@
 import Banner from "@/components/Home/Banner";
 import LatestPost from "@/components/Home/LatestPost";
-import CardLoader, { CardDesign } from "@/components/Loader/CardComponents";
 import { colorcode } from "@/context/data";
 import React from "react";
 
