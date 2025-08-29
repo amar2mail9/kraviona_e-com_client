@@ -60,14 +60,14 @@ export const Header = () => {
         {/* Logo */}
         <Link href="/" onClick={() => setMobileMenu(false)}>
           <img
-            src="/l-logo.png"
+            src="/logo.png"
             alt="logo"
             className="hidden md:block w-[150px] lg:w-[180px]"
           />
           <img
             src="/favicon.ico"
             alt="logo"
-            className="md:hidden w-[50px] rounded-full"
+            className="md:hidden w-[30px] rounded-full"
           />
         </Link>
 
