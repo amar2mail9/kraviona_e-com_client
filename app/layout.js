@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
           <Header />
         </header>
 
-        <main>{children}</main>
+        <main className="w-full px-6 lg:px-[10%] py-[20px]">{children}</main>
 
         <footer className="bg-gray-100 text-center py-6 mt-10">
           <p className="text-sm text-gray-500">

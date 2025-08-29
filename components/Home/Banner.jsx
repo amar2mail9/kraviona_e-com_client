@@ -13,11 +13,11 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
 const Banner = ({
-  thumbnail = "https://pagefly.io/cdn/shop/articles/The_Complete_Guide_to_Shopify_Banner_Size_with_Best_Practices_a00bd2ed-24ed-4d71-90de-320a664b7e69.png?v=1747127923&width=1640",
+  thumbnail = "https://static.vecteezy.com/system/resources/previews/011/871/820/non_2x/online-shopping-on-phone-buy-sell-business-digital-web-banner-application-money-advertising-payment-ecommerce-illustration-search-vector.jpg",
 }) => {
   return (
     <>
-      <section className="w-full mx-auto">
+      <section className="w-full ">
         {/* 16:9 aspect ratio for YouTube-like thumbnail */}
         <div className="relative w-full aspect-video md:aspect-[21/9] overflow-hidden ">
           {/* Background Image */}
@@ -32,10 +32,11 @@ const Banner = ({
             modules={[Autoplay]}
             className="mySwiper"
           >
-            s
             <SwiperSlide>
               <img
-                src={thumbnail} // <-- replace with your image path
+                src={
+                  "https://t3.ftcdn.net/jpg/04/65/46/52/360_F_465465254_1pN9MGrA831idD6zIBL7q8rnZZpUCQTy.jpg"
+                } // <-- replace with your image path
                 alt="Banner"
                 className="w-full h-full md:object-center md:object-cover "
               />

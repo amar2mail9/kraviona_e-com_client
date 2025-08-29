@@ -87,7 +87,7 @@ export const CardDesign = ({
         }}
       >
         {/* Product Image */}
-        <div className="bg-white h-[160px] flex items-center justify-center">
+        <div className=" w-[180px] bg-white h-[160px] flex items-center justify-center mx-auto">
           <Link href={`/${id}`}>
             <img
               loading="lazy"
@@ -108,10 +108,10 @@ export const CardDesign = ({
           {/* Price + Discount */}
           <div className="flex items-center gap-2 mt-2">
             <span className="text-base sm:text-md font-bold text-gray-900">
-              ${discountedPrice}
+              ₹{discountedPrice}
             </span>
             <span className="line-through text-xs sm:text-sm text-gray-400">
-              ${price}
+              ₹{price}
             </span>
             <span className="text-xs sm:text-sm text-green-600 font-medium">
               -{discountPercentage}%

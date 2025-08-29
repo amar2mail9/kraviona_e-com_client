@@ -9,10 +9,11 @@ import { TiThMenu } from "react-icons/ti";
 
 import Link from "next/link";
 import React, { useState } from "react";
-import { FavoriteOutlined, Logout, Margin, Search } from "@mui/icons-material";
+import { FavoriteOutlined, Logout } from "@mui/icons-material";
 
-import { FiSearch, FiUser } from "react-icons/fi";
-import { FaToggleOff, FaUserLarge } from "react-icons/fa6";
+import { FiSearch } from "react-icons/fi";
+import { FaUserLarge } from "react-icons/fa6";
+import { useRouter } from "next/navigation";
 
 /* ✅ Styled Badge */
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -34,6 +35,21 @@ export const Header = () => {
 
   const handleOpenMenu = () => setOpenMenu(true);
   const handleCloseMenu = () => setOpenMenu(false);
+
+  // search value
+  const [searchInput, setSearchInput] = useState(null);
+  const router = useRouter();
+
+  const searchValue = (e) => {
+    e.preventDefault();
+    if (searchInput.trim() === null || "") {
+      return <alert>Enter Value</alert>;
+    } else {
+      router.push(`/searchresult/${searchInput}`);
+      handleClose();
+      setSearchInput("");
+    }
+  };
 
   return (
     <header
@@ -218,22 +234,28 @@ export const Header = () => {
           }}
         >
           {/* ✅ Rounded Search Input */}
-          <div className="flex items-center justify-between">
-            <input
-              placeholder="Search products..."
-              className="w-full h-full px-4 outline-0 border-0"
-            />
-            <button
-              onClick={handleClose}
-              sx={{
-                bgcolor: colorcode.primary,
-                color: "#fff",
-                "&:hover": { bgcolor: colorcode.primary },
-              }}
-            >
-              <SearchIcon />
-            </button>
-          </div>
+          <form onSubmit={searchValue} className="w-full h-full">
+            <div className="flex w-full h-full items-center justify-between">
+              <input
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                type="text"
+                placeholder="Search products..."
+                className="w-full h-full px-4 outline-0 border-0"
+              />
+
+              <button
+                onClick={searchValue}
+                sx={{
+                  bgcolor: colorcode.primary,
+                  color: "#fff",
+                  "&:hover": { bgcolor: colorcode.primary },
+                }}
+              >
+                <SearchIcon />
+              </button>
+            </div>
+          </form>
         </Box>
       </Modal>
     </header>

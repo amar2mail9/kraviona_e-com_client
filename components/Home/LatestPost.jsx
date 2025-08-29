@@ -26,7 +26,7 @@ function LatestPost() {
   }, []);
 
   return (
-    <div className="w-full mx-auto py-8  sm:px-6 ">
+    <div className=" mx-auto py-8  sm:px-6 ">
       {/* Title */}
       <h2 className="text-2xl font-bold mb-4">🛍️ Latest Products</h2>
       <Divider className="!mb-6" />

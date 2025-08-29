@@ -9,7 +9,7 @@ function Home() {
       style={{
         backgroundColor: `${colorcode.websiteBg}`,
       }}
-      className=" flex items-center flex-col justify-between w-full px-2 lg:px-[10%] py-[20px]"
+      className=" "
     >
       <Banner />
 

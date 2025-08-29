@@ -68,3 +68,8 @@ export const fetchApi = async (endpoint) => {
     console.error(error.message || error.error);
   }
 };
+
+export const priceCalculated = (price = 0, discount = 0) => {
+  const finalPrice = price - price * (discount / 100);
+  return Math.round(finalPrice); // round-off to nearest integer
+};
