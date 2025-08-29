@@ -130,7 +130,7 @@ export const Header = () => {
             width: "75%",
             maxWidth: 320,
             height: "100%",
-            // bg color from palette
+            background:"var(--background)",
             boxShadow: 24,
             display: "flex",
             flexDirection: "column",
@@ -139,7 +139,7 @@ export const Header = () => {
           {/* Header / Branding */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
             <img src="./l-logo.png" alt="Logo" width={120} />
-            <button onClick={handleCloseMenu}>✕</button>
+            <button onClick={handleCloseMenu} className="text-rose-500">❌</button>
           </div>
 
           {/* Menu Items */}
