@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { colorcode, fetchApi, priceCalculated } from "@/context/data";
-import { CardLoader } from "../Loader/CardComponents";
+import { fetchApi, priceCalculated } from "@/context/data";
+
 import { ShoppingCart } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import BannerLoader from "../Loader/BannerLoader";
@@ -35,7 +35,6 @@ function ProductDetailsComponents() {
       <div
         className="w-full"
         style={{
-          background: `${colorcode.cardBg}`,
           borderRadius: 30,
           boxShadow: "0 0 20px 1px #19191930",
         }}
@@ -62,7 +61,6 @@ function ProductDetailsComponents() {
                     image === index ? "border-blue-500" : "border-transparent"
                   }`}
                     style={{
-                      background: `${colorcode.cardBg}`,
                       borderRadius: 5,
                       boxShadow: "0 0 20px 1px #19191930",
                     }}
@@ -109,9 +107,6 @@ function ProductDetailsComponents() {
               <Button
                 variant="contained"
                 className="!flex-1 !capitalize !gap-2"
-                style={{
-                  background: colorcode.button.bg,
-                }}
               >
                 <ShoppingCart /> Add to Cart
               </Button>
@@ -130,7 +125,6 @@ function ProductDetailsComponents() {
           <div
             className="p-4"
             style={{
-              background: `${colorcode.cardBg}`,
               boxShadow: "0 0 20px 1px #19191930",
               borderRadius: 10,
             }}
@@ -147,7 +141,6 @@ function ProductDetailsComponents() {
           <div
             className="p-4"
             style={{
-              background: `${colorcode.cardBg}`,
               boxShadow: "0 0 20px 1px #19191930",
               borderRadius: 10,
             }}
@@ -164,7 +157,6 @@ function ProductDetailsComponents() {
           <div
             className="p-4"
             style={{
-              background: `${colorcode.cardBg}`,
               boxShadow: "0 0 20px 1px #19191930",
               borderRadius: 10,
             }}
@@ -179,7 +171,6 @@ function ProductDetailsComponents() {
           <div
             className="p-4 col-span-1 md:col-span-2"
             style={{
-              background: `${colorcode.cardBg}`,
               boxShadow: "0 0 20px 1px #19191930",
               borderRadius: 10,
             }}
@@ -198,7 +189,6 @@ function ProductDetailsComponents() {
           <div
             className="p-4 col-span-1 md:col-span-2 lg:col-span-3"
             style={{
-              background: `${colorcode.cardBg}`,
               boxShadow: "0 0 20px 1px #19191930",
               borderRadius: 10,
             }}

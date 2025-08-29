@@ -1,9 +1,13 @@
 "use client";
 
-import { colorcode } from "@/context/data";
 import { Button } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
 import Link from "next/link";
+import ButtonCard from "./ButtonCard";
+
+const buttonType2 = {
+  "background-color": "#f19232",
+};
 
 export const CardLoader = () => {
   return (
@@ -77,12 +81,12 @@ export const CardDesign = ({
           w-[100%] sm:w-[250px] lg:w-[260px] 
           rounded-lg overflow-hidden 
           flex flex-col 
-          transition-all duration-300 hover:scale-[1.02] 
+          transition-all duration-300 hover:scale-[1.09] hover:cursor-pointer hover:shadow-2xl ease-in-out 
           mx-auto
+          
         "
         style={{
-          background: colorcode.cardBg,
-
+          background: "var(--surface)",
           boxShadow: "0 0 20px 1px #19191930",
         }}
       >
@@ -106,16 +110,18 @@ export const CardDesign = ({
           <p className="text-xs sm:text-[11px] text-gray-500">{category}</p>
 
           {/* Price + Discount */}
-          <div className="flex items-center gap-2 mt-2">
+          <div className="flex md:flex-row flex-col md:items-center items-start md:gap-2 mt-2">
             <span className="text-base sm:text-md font-bold text-gray-900">
-              ₹{discountedPrice}
+              ₹{(discountedPrice * 83).toFixed(2)}
             </span>
-            <span className="line-through text-xs sm:text-sm text-gray-400">
-              ₹{price}
-            </span>
-            <span className="text-xs sm:text-sm text-green-600 font-medium">
-              -{discountPercentage}%
-            </span>
+            <div>
+              <span className="line-through text-xs sm:text-sm text-gray-400">
+                ₹{(price * 83).toFixed(2)}
+              </span>
+              <span className="text-xs sm:text-sm text-green-600 font-medium">
+                -{discountPercentage}%
+              </span>
+            </div>
           </div>
 
           {/* Rating */}
@@ -131,20 +137,7 @@ export const CardDesign = ({
           </div>
 
           {/* Buttons → only show on lg screens */}
-          <div className="hidden lg:flex mt-3 gap-2">
-            <Button
-              variant="contained"
-              className="!flex-1"
-              style={{
-                background: colorcode.button.bg,
-              }}
-            >
-              <ShoppingCart />
-            </Button>
-            <Button className="!flex-1" variant="outlined">
-              Buy Now
-            </Button>
-          </div>
+          <ButtonCard id={id} />
         </div>
       </div>
     </section>

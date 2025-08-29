@@ -1,5 +1,5 @@
 "use client";
-import { colorcode } from "@/context/data";
+
 import { Divider } from "@mui/material";
 import { useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
@@ -30,10 +30,10 @@ function SearchResult() {
   }, [search]);
 
   return (
-    <div className="p-4">
+    <div>
       {/* Loader */}
       {loading ? (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
           {Array.from({ length: 10 }).map((_, idx) => (
             <CardLoader key={idx} />
           ))}
@@ -49,7 +49,7 @@ function SearchResult() {
 
           {/* Search results */}
           {searchData && searchData.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-4 gap-2">
               {searchData.map((product, i) => (
                 <CardDesign {...product} key={i} />
               ))}

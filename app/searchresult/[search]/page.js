@@ -1,3 +1,4 @@
+
 import SearchResult from "@/components/SearchPage/SearchResult";
 import React from "react";
 

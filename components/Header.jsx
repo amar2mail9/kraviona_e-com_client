@@ -1,5 +1,5 @@
 "use client";
-import { colorcode, menuList } from "@/context/data";
+import { menuList } from "@/context/data";
 import { Badge, Box, button, Modal } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
@@ -52,10 +52,7 @@ export const Header = () => {
   };
 
   return (
-    <header
-      style={{ backgroundColor: colorcode.headerBg }}
-      className="shadow-sm sticky top-0 z-50"
-    >
+    <header className="shadow-sm sticky top-0 z-50 backdrop-blur-[150px] bg-white/70 ">
       <nav className="flex items-center justify-between w-full px-6 lg:px-[10%] py-[20px]">
         {/* Logo */}
         <Link href="/" onClick={() => setMobileMenu(false)}>
@@ -77,7 +74,6 @@ export const Header = () => {
             <li key={idx}>
               <Link
                 href={link}
-                style={{ color: colorcode.text }}
                 className="transition-colors hover:!text-blue-600"
               >
                 {name}
@@ -90,16 +86,13 @@ export const Header = () => {
         <div className="flex items-center gap-2 md:gap-8">
           {/* search  */}
           <button onClick={handleOpen}>
-            <FiSearch
-              style={{ color: colorcode.text }}
-              className="hover:!text-blue-600"
-            />
+            <FiSearch className="hover:!text-blue-600 text-xl text-blue-500" />
           </button>
 
           {/* cart  */}
           <button aria-label="cart" className="md:!block !hidden">
-            <StyledBadge badgeContent={4} color="secondary">
-              <ShoppingCartIcon style={{ color: colorcode.text }} />
+            <StyledBadge badgeContent={4} color="warning">
+              <ShoppingCartIcon className="text-emerald-500" />
             </StyledBadge>
           </button>
 
@@ -112,23 +105,17 @@ export const Header = () => {
               aspectRatio: 20,
             }}
           >
-            <FavoriteOutlined
-              style={{ color: `${colorcode.button}` }}
-              className="hover:!text-rose-600"
-            />
+            <FavoriteOutlined className="hover:!text-rose-600 text-rose-500" />
           </button>
 
           {/* user  */}
           <button className="md:!block !hidden">
-            <FaUserLarge
-              style={{ color: colorcode.text }}
-              className="hover:!text-blue-600"
-            />
+            <FaUserLarge className="hover:!text-blue-600 text-gray-600" />
           </button>
 
           {/* Mobile Menu Toggle */}
           <button className="md:!hidden !block" onClick={handleOpenMenu}>
-            <TiThMenu style={{ color: colorcode.text }} />
+            <TiThMenu />
           </button>
         </div>
       </nav>
@@ -143,7 +130,7 @@ export const Header = () => {
             width: "75%",
             maxWidth: 320,
             height: "100%",
-            bgcolor: colorcode.background, // bg color from palette
+            // bg color from palette
             boxShadow: 24,
             display: "flex",
             flexDirection: "column",
@@ -152,12 +139,7 @@ export const Header = () => {
           {/* Header / Branding */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
             <img src="./l-logo.png" alt="Logo" width={120} />
-            <button
-              onClick={handleCloseMenu}
-              style={{ color: colorcode.danger }}
-            >
-              ✕
-            </button>
+            <button onClick={handleCloseMenu}>✕</button>
           </div>
 
           {/* Menu Items */}
@@ -166,7 +148,6 @@ export const Header = () => {
               <li key={idx} className="" style={{}}>
                 <Link
                   href={link}
-                  style={{ color: colorcode.text }}
                   className="flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-gray-200 hover:!text-indigo-600"
                   onClick={handleCloseMenu}
                 >
@@ -182,7 +163,6 @@ export const Header = () => {
             <li>
               <Link
                 href="/wishlist"
-                style={{ color: colorcode.text }}
                 className="flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-gray-200 hover:!text-indigo-600"
                 onClick={handleCloseMenu}
               >
@@ -192,7 +172,6 @@ export const Header = () => {
             <li>
               <Link
                 href="/profile"
-                style={{ color: colorcode.text }}
                 className="flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-gray-200 hover:!text-indigo-600"
                 onClick={handleCloseMenu}
               >
@@ -205,10 +184,6 @@ export const Header = () => {
           <div className="p-4 border-t border-gray-200">
             <Link
               href="/logout"
-              style={{
-                color: colorcode.background,
-                backgroundColor: colorcode.danger,
-              }}
               className="flex items-center rounded-full py-2 gap-3 text-center justify-center transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
               onClick={handleCloseMenu}
             >
@@ -228,7 +203,7 @@ export const Header = () => {
             transform: "translate(-50%, -50%)",
             width: "90%",
             maxWidth: 800,
-            bgcolor: `${colorcode.cardBg}`,
+            background: "var(--surface)",
             borderRadius: 10,
             padding: 2,
           }}
@@ -244,14 +219,7 @@ export const Header = () => {
                 className="w-full h-full px-4 outline-0 border-0"
               />
 
-              <button
-                onClick={searchValue}
-                sx={{
-                  bgcolor: colorcode.primary,
-                  color: "#fff",
-                  "&:hover": { bgcolor: colorcode.primary },
-                }}
-              >
+              <button onClick={searchValue}>
                 <SearchIcon />
               </button>
             </div>
