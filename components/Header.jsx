@@ -83,7 +83,7 @@ export const Header = () => {
         </ul>
 
         {/* Icons */}
-        <div className="flex items-center gap-2 md:gap-8">
+        <div className="flex justify-center items-center gap-2 md:gap-8">
           {/* search  */}
           <button onClick={handleOpen}>
             <FiSearch className="hover:!text-blue-600 text-xl text-blue-500" />
