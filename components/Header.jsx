@@ -9,7 +9,7 @@ import { TiThMenu } from "react-icons/ti";
 
 import Link from "next/link";
 import React, { useState } from "react";
-import { FavoriteOutlined, Logout } from "@mui/icons-material";
+import { FavoriteOutlined, Login, Logout } from "@mui/icons-material";
 
 import { FiSearch } from "react-icons/fi";
 import { FaUserLarge } from "react-icons/fa6";
@@ -64,7 +64,7 @@ export const Header = () => {
           <img
             src="/favicon.ico"
             alt="logo"
-            className="md:hidden w-[30px] rounded-full"
+            className="md:hidden w-[40px] rounded-full"
           />
         </Link>
 
@@ -115,7 +115,7 @@ export const Header = () => {
 
           {/* Mobile Menu Toggle */}
           <button className="md:!hidden !block" onClick={handleOpenMenu}>
-            <TiThMenu />
+            <TiThMenu className="text-orange-600 text-2xl" />
           </button>
         </div>
       </nav>
@@ -130,7 +130,7 @@ export const Header = () => {
             width: "75%",
             maxWidth: 320,
             height: "100%",
-            background:"var(--background)",
+            background: "var(--background)",
             boxShadow: 24,
             display: "flex",
             flexDirection: "column",
@@ -138,8 +138,10 @@ export const Header = () => {
         >
           {/* Header / Branding */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
-            <img src="./l-logo.png" alt="Logo" width={120} />
-            <button onClick={handleCloseMenu} className="text-rose-500">❌</button>
+            <img src="./logo.png" alt="Logo" width={120} />
+            <button onClick={handleCloseMenu} className="text-rose-500">
+              ❌
+            </button>
           </div>
 
           {/* Menu Items */}
@@ -148,7 +150,7 @@ export const Header = () => {
               <li key={idx} className="" style={{}}>
                 <Link
                   href={link}
-                  className="flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-gray-200 hover:!text-indigo-600"
+                  className="flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-emerald-100 hover:!text-orange-500"
                   onClick={handleCloseMenu}
                 >
                   {name}
@@ -163,7 +165,7 @@ export const Header = () => {
             <li>
               <Link
                 href="/wishlist"
-                className="flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-gray-200 hover:!text-indigo-600"
+                className="flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200  hover:bg-emerald-100 hover:!text-orange-500"
                 onClick={handleCloseMenu}
               >
                 Wishlist
@@ -172,7 +174,7 @@ export const Header = () => {
             <li>
               <Link
                 href="/profile"
-                className="flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-gray-200 hover:!text-indigo-600"
+                className="flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200  hover:bg-emerald-100 hover:!text-orange-500"
                 onClick={handleCloseMenu}
               >
                 My Profile
@@ -182,13 +184,30 @@ export const Header = () => {
 
           {/* Bottom Button */}
           <div className="p-4 border-t border-gray-200">
-            <Link
-              href="/logout"
-              className="flex items-center rounded-full py-2 gap-3 text-center justify-center transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
-              onClick={handleCloseMenu}
-            >
-              <Logout /> Logout
-            </Link>
+            {localStorage.getItem("accessToken") ? (
+              <Link
+                href="/logout"
+                className="flex items-center rounded-full py-2 gap-3 text-center justify-center transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
+                onClick={handleCloseMenu}
+                style={{
+                  background: "var(--danger)",
+                }}
+              >
+                <Logout /> Logout
+              </Link>
+            ) : (
+              <Link
+                href="/logout"
+                className="flex items-center rounded-full py-2 gap-3 text-center justify-center transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
+                onClick={handleCloseMenu}
+                style={{
+                  background: "var(--accent)",
+                  color: "var(--border)",
+                }}
+              >
+                <Login /> Login
+              </Link>
+            )}
           </div>
         </Box>
       </Modal>
