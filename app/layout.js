@@ -1,23 +1,5 @@
-import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-// ✅ Correct Poppins font
-const poppins = Poppins({
-  weight: ["300", "400", "500", "600", "700"], // jitne chahiye utne weight select karo
-  subsets: ["latin"],
-  variable: "--font-poppins",
-});
 
 export const metadata = {
   title: "Kraviona",
@@ -30,12 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased bg-[#f9f9f9]`}
-        style={{
-          fontFamily: "var(--font-poppins)", // 👈 Poppins apply ho jayega
-        }}
-      >
+      <body className={` antialiased bg-[#f9f9f9]`}>
         <header className="sticky top-0 left-0 z-50 ">
           <Header />
         </header>
