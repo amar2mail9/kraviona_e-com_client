@@ -86,16 +86,21 @@ export const Header = () => {
           </button>
 
           {/* cart */}
-          <button aria-label="cart" className="mx-2">
-            <StyledBadge badgeContent={4} color="warning">
-              <ShoppingCartIcon className="text-emerald-500" />
-            </StyledBadge>
-          </button>
+          <Link href={"/shopping-cart"}>
+            <button aria-label="cart" className="mx-2">
+              <StyledBadge badgeContent={4} color="warning">
+                <ShoppingCartIcon className="text-emerald-500" />
+              </StyledBadge>
+            </button>
+          </Link>
 
           {/* wishlist */}
-          <button className="md:!block !hidden">
-            <FavoriteOutlined className="hover:!text-rose-600 text-rose-500" />
-          </button>
+          <Link href={"/wishlist"}>
+            {" "}
+            <button className="md:!block !hidden">
+              <FavoriteOutlined className="hover:!text-rose-600 text-rose-500" />
+            </button>
+          </Link>
 
           {/* user */}
           <button onClick={handleOpenLogin} className="md:!block !hidden">
