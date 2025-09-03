@@ -16,6 +16,7 @@ import {
 import { FiSearch } from "react-icons/fi";
 import { FaUserLarge } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
+import LoginOrSignUp from "./auth/Login";
 
 /* ✅ Styled Badge */
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -31,7 +32,7 @@ export const Header = () => {
   const [openSearch, setOpenSearch] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-
+  const [openLogin, setOpenLogin] = useState(false);
   const router = useRouter();
 
   const searchValue = (e) => {
@@ -44,7 +45,8 @@ export const Header = () => {
     setOpenSearch(false);
     setSearchInput("");
   };
-
+  const handleOpenLogin = () => setOpenLogin(true);
+  const handleCloseLogin = () => setOpenLogin(false);
   return (
     <header className="shadow-sm sticky top-0 z-50 backdrop-blur-[150px] bg-white/70">
       <nav className="flex items-center justify-between w-full px-6 lg:px-[10%] py-[20px]">
@@ -84,7 +86,7 @@ export const Header = () => {
           </button>
 
           {/* cart */}
-          <button aria-label="cart" className="md:!block !hidden">
+          <button aria-label="cart" className="mx-2">
             <StyledBadge badgeContent={4} color="warning">
               <ShoppingCartIcon className="text-emerald-500" />
             </StyledBadge>
@@ -96,7 +98,7 @@ export const Header = () => {
           </button>
 
           {/* user */}
-          <button className="md:!block !hidden">
+          <button onClick={handleOpenLogin} className="md:!block !hidden">
             <FaUserLarge className="hover:!text-blue-600 text-gray-600" />
           </button>
 
@@ -183,9 +185,7 @@ export const Header = () => {
                 onClick={() => {
                   localStorage.removeItem("accessToken");
                 }}
-              
                 className="flex items-center rounded-full w-full py-2 gap-3 text-center justify-center transition-all duration-200 hover:opacity-90 hover:scale-[1.02] text-white"
-  
                 style={{
                   background: "var(--danger)",
                   color: "#ffffff",
@@ -239,6 +239,23 @@ export const Header = () => {
               </button>
             </div>
           </form>
+        </Box>
+      </Modal>
+
+      {/* login profile menu */}
+      <Modal open={openLogin} onClose={handleCloseLogin}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "90%",
+            maxWidth: 800,
+            background: "var(--surface)",
+          }}
+        >
+          <LoginOrSignUp />
         </Box>
       </Modal>
     </header>

@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
 import Link from "next/link";
 import ButtonCard from "./ButtonCard";
+import { priceCalculated } from "@/context/data";
 
 const buttonType2 = {
   "background-color": "#f19232",
@@ -112,11 +113,11 @@ export const CardDesign = ({
           {/* Price + Discount */}
           <div className="flex md:flex-row flex-col md:items-center items-start md:gap-2 mt-2">
             <span className="text-base sm:text-md font-bold text-gray-900">
-              ₹{(discountedPrice * 83).toFixed(2)}
+              ₹{priceCalculated(price, discountPercentage).toFixed(2)}
             </span>
             <div>
               <span className="line-through text-xs sm:text-sm text-gray-400">
-                ₹{(price * 83).toFixed(2)}
+                ₹{price}
               </span>
               <span className="text-xs sm:text-sm text-green-600 font-medium">
                 -{discountPercentage}%

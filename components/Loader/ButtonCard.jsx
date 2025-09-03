@@ -4,31 +4,33 @@ import React from "react";
 
 function ButtonCard({ id }) {
   return (
-    <div>
-      <div className="hidden lg:flex mt-3 gap-2">
-        {/* Primary Filled Button */}
+    <div className="w-full">
+      <div className="hidden lg:flex mt-4 gap-3">
+        {/* Add to Cart Button */}
         <Button
           onClick={() => {
-            console.log(id);
+            console.log("Added to cart:", id);
           }}
           variant="contained"
-          className="!flex-1  "
+          className="!flex-1 !capitalize !py-2  !text-base !font-medium !gap-2"
           style={{
             background: "#10B981",
+            transition: "all 0.3s ease",
           }}
         >
-          <ShoppingCart />
+          <ShoppingCart fontSize="small" />
         </Button>
 
-        {/* Secondary Outline Button */}
+        {/* Buy Now Button */}
         <Button
-          style={{
-            border: "1px solid #F97316",
-            background: "#F9731610",
-            color: "#f97316",
-          }}
-          className="!flex-1"
           variant="outlined"
+          className="!flex-1 !capitalize !py-2  !text-base !font-medium"
+          style={{
+            border: "2px solid #F97316",
+            background: "#F9731610",
+            color: "#F97316",
+            transition: "all 0.3s ease",
+          }}
         >
           Buy Now
         </Button>
