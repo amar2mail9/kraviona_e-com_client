@@ -4,10 +4,10 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { fetchApi, priceCalculated } from "@/context/data";
 
-import { ShoppingCart } from "@mui/icons-material";
-import { Button, Rating } from "@mui/material";
+import { Rating } from "@mui/material";
 import BannerLoader from "../Loader/BannerLoader";
 import ButtonCard from "../Loader/ButtonCard";
+import ProductImageSlider from "./SwipeProductImages";
 
 function ProductDetailsComponents() {
   const { id } = useParams();
@@ -32,7 +32,7 @@ function ProductDetailsComponents() {
     );
 
   return (
-    <div className="max-w-6xl mx-auto md:p-6">
+    <div className="w-full mx-auto md:p-6">
       <div
         className="w-full rounded-2xl bg-white shadow-lg overflow-hidden"
         style={{ boxShadow: "0 6px 25px rgba(0,0,0,0.08)" }}
@@ -41,32 +41,8 @@ function ProductDetailsComponents() {
         <div className="w-full grid md:grid-cols-2 grid-cols-1 gap-8 p-6">
           {/* Left - Main Image + Thumbnails */}
           <div className="flex flex-col items-center">
-            <img
-              src={product?.images[image]}
-              alt={product?.title}
-              className="w-full max-h-96 object-contain rounded-xl  bg-gray-50"
-            />
-
-            {/* Thumbnails */}
-            <div className="flex gap-3 mt-4 overflow-x-auto scrollbar-hide">
-              {product?.images?.map((img, index) => (
-                <button
-                  key={index}
-                  onClick={() => viewImage(index)}
-                  className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-200 
-                    ${
-                      image === index
-                        ? "border-blue-500"
-                        : "border-gray-200 hover:border-gray-400"
-                    }`}
-                >
-                  <img
-                    src={img}
-                    alt={`${product?.title} ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
+            <div className="w-full ">
+              <ProductImageSlider product={product} />
             </div>
           </div>
 
@@ -84,7 +60,7 @@ function ProductDetailsComponents() {
                 ).toFixed(2)}
               </span>
               <span className="line-through text-gray-500 text-lg">
-                ₹ {(product?.price).toFixed(2)}
+                ₹ {product?.price.toFixed(2)}
               </span>
               <span className="text-sm font-medium text-red-500 bg-red-50 px-2 py-1 rounded-md">
                 {product?.discountPercentage}% OFF
@@ -171,7 +147,7 @@ function ProductDetailsComponents() {
                 {product.reviews.map((rev, idx) => (
                   <div
                     key={idx}
-                    className="p-3 bg-gray-50 rounded-lg  hover:shadow-sm transition"
+                    className="p-3 bg-gray-50 rounded-lg hover:shadow-sm transition"
                   >
                     <p className="font-medium text-sm">
                       {rev.name}{" "}
@@ -194,7 +170,7 @@ function ProductDetailsComponents() {
 
 const InfoCard = ({ title, children, className = "" }) => (
   <div
-    className={`p-4 bg-white rounded-xl  shadow-sm ${className}`}
+    className={`p-4 bg-white rounded-xl shadow-sm ${className}`}
     style={{ boxShadow: "0 4px 15px rgba(0,0,0,0.05)" }}
   >
     <h3 className="font-semibold text-lg mb-2">{title}</h3>

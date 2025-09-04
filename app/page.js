@@ -1,6 +1,7 @@
 import Banner from "@/components/Home/Banner";
 import LatestPost from "@/components/Home/LatestPost";
 import T from "@/components/Loader/T.jsx";
+import SwipeProductImages from "@/components/ProductDetails/SwipeProductImages";
 
 import React from "react";
 
@@ -11,6 +12,7 @@ function Home() {
 
       <LatestPost />
       {/* <T /> */}
+      <SwipeProductImages />
     </div>
   );
 }
